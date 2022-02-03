@@ -18,7 +18,7 @@ class PortScanner:
             self.s = socket(AF_INET, SOCK_STREAM)
             
             self.conn = self.s.connect_ex((self.t_IP, i))
-            if(self.conn == 0) :
+            if(self.conn == 0):
                 print (f"Port {i}: OPEN")
             self.s.close()
 
