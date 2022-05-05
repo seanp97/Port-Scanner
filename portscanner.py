@@ -7,6 +7,16 @@ class PortScanner:
     def __init__(self):
 
         if len(sys.argv) > 0:
+
+            print("______          _     _____                                 ")
+            print("| ___ \        | |   /  ___|                                ")
+            print("| |_/ /__  _ __| |_  \ `--.  ___ __ _ _ __  _ __   ___ _ __ ")
+            print("|  __/ _ \| '__| __|  `--. \/ __/ _` | '_ \| '_ \ / _ \ '__|")
+            print("| | | (_) | |  | |_  /\__/ / (_| (_| | | | | | | |  __/ |   ")
+            print("\_|  \___/|_|   \__| \____/ \___\__,_|_| |_|_| |_|\___|_|   ")
+            print("")
+
+
             self.hostip = sys.argv[1]
             self.ScanNetwork(self.hostip)
         else:
@@ -20,10 +30,11 @@ class PortScanner:
 
         self.t_IP = gethostbyname(ipaddr)
         print(f"Starting scan on host: {self.t_IP}")
+        print("")
         
         for i in range(1, 65535):
             self.s = socket(AF_INET, SOCK_STREAM)
-            self.s.settimeout(0.15)
+            self.s.settimeout(0.01)
             self.conn = self.s.connect_ex((self.t_IP, i))
             if(self.conn == 0):
                 print (f"Port {i}: OPEN")
