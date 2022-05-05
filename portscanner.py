@@ -25,7 +25,7 @@ class PortScanner:
 
 
     
-    def ScanNetwork(self, ipaddr, timeout = 0.1, portlimit = 65535):
+    def ScanNetwork(self, ipaddr):
         self.startTime = time.time()
 
         self.t_IP = gethostbyname(ipaddr)
@@ -40,10 +40,7 @@ class PortScanner:
                 print (f"Port {i}: OPEN")
             self.s.close()
 
-        if time.time() - self.startTime >= 60:
-            print(f"Time taken {time.time() - self.startTime / 60} minute(s)")
-        else:
-            print(f"Time taken: {time.time() - self.startTime} seconds")
+        print(f"Time taken: {round(time.time() - self.startTime, 2)} seconds")
 
 
 
