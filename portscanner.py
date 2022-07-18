@@ -56,13 +56,12 @@ class PortScanner:
 
             self.txtOutput = input(" Would you like a txt file with the results? (y/n)")
 
-
             if self.txtOutput.lower() == "y":
                 self.dateTime = int(time.time())
                 self.downloads_path = str(Path.home() / "Downloads")
 
                 with open(f"{self.downloads_path}/Port_Scanner_Results-{self.dateTime}.txt", 'w') as f:
-                    f.write(f"Port: {self.hostip}")
+                    f.write(f"Host IP: {self.hostip}")
                     f.write("\n")
                     f.write("\n")
 
