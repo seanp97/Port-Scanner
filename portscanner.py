@@ -63,9 +63,12 @@ class PortScanner:
                 with open(f"{self.downloads_path}/Port_Scanner_Results-{self.dateTime}.txt", 'w') as f:
                     f.write(f"Host IP: {self.hostip}")
                     f.write("\n")
+                    f.write("---------")
                     f.write("\n")
 
                     f.write(f"Open Ports: {self.portCounter}")
+                    f.write("\n")
+                    f.write("---------")
                     f.write("\n")
                     f.write("\n")
 
