@@ -19,14 +19,15 @@ class PortScanner:
 
 
             self.hostip = sys.argv[1]
-            self.ScanNetwork(self.hostip)
+            self.portLimiter = int(sys.argv[2])
+            self.ScanNetwork(self.hostip, self.portLimiter)
         else:
             print(" Enter valid IP address ")
             sys.exit()
 
 
     
-    def ScanNetwork(self, ipaddr):
+    def ScanNetwork(self, ipaddr, portLimit = 65535):
         try:
             self.startTime = time.time()
 
@@ -35,18 +36,21 @@ class PortScanner:
             print("")
 
             self.outputArr = []
+            self.portCounter = 0
             
-            for i in range(0, 65535):
+            for i in range(0, portLimit):
                 self.s = socket(AF_INET, SOCK_STREAM)
                 self.s.settimeout(0.01)
                 self.conn = self.s.connect_ex((self.t_IP, i))
                 if(self.conn == 0):
                     print (f" Port {i}: OPEN ")
+                    self.portCounter += 1
                     print("")
                     self.outputArr.append(f"PORT {i}")
                 self.s.close()
 
             print(f" Time taken: {round(time.time() - self.startTime, 2)} seconds ")
+            print(f" Ports Open: {self.portCounter} ")
 
             print("")
 
