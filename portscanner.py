@@ -62,8 +62,17 @@ class PortScanner:
                 self.downloads_path = str(Path.home() / "Downloads")
 
                 with open(f"{self.downloads_path}/Port_Scanner_Results-{self.dateTime}.txt", 'w') as f:
+                    f.write(f"Port: {self.hostip}")
+                    f.write("\n")
+                    f.write("\n")
+
+                    f.write(f"Open Ports: {self.portCounter}")
+                    f.write("\n")
+                    f.write("\n")
+
                     for a in self.outputArr:
                         f.write(a + ": OPEN" + "\n")
+
 
                 print("")
                 print(f" File has been created at {self.downloads_path}")
